@@ -1,10 +1,15 @@
-import logo from './logo.svg';
+/* eslint-disable */
+// import logo from './logo.svg';
 import './App.css';
+import './style/style.scss';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      hi
+      <p className="temp">hi</p>
+      <p className="temp2">hi</p>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -17,7 +22,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }

@@ -1,0 +1,67 @@
+$mainpoint : rgb(233, 125, 30);
+$maindark : rgb(27, 3, 46);
+$mainbase : rgb(127, 64, 40);
+$fontbasic: rgb(54, 54, 54);
+
+@mixin fontpoint {
+  font-family: rixmmjse-pro, serif;
+  font-weight: 700;
+  font-style: normal;
+  color: aliceblue;
+}
+
+:root{
+  background: url('./../background.svg') no-repeat center;
+  background-size: cover;
+}
+// basic 설정 initializing
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline-style: none;
+}
+html{
+  height: 100%;
+  font-size: 10px;
+  body{
+    height: 100%;
+    font-family: source-han-sans-korean, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.4rem;
+    color: $fontbasic;
+
+    letter-spacing: 0;
+    line-height: 1;
+    #root{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      .App{
+        width: 70%;
+        height: 100%;
+      }
+      button{
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+      ul,li{
+        list-style: none;
+      }
+      a{
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.temp{
+  color: blue;
+}
+.temp2{
+  @include fontpoint();
+  color: white;
+}
