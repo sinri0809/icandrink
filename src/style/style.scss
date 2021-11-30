@@ -4,10 +4,14 @@ $mainbase : rgb(127, 64, 40);
 $fontbasic: rgb(54, 54, 54);
 
 @mixin fontpoint {
-  font-family: rixmmjse-pro, serif;
-  font-weight: 700;
-  font-style: normal;
+  // font-family: rixmmjse-pro, serif;
+  // font-weight: 700;
+  // font-style: normal;
   color: aliceblue;
+  font-family: reklame-script, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 1.5px;
 }
 
 :root{
@@ -25,7 +29,6 @@ html{
   height: 100%;
   font-size: 10px;
   body{
-    height: 100%;
     font-family: source-han-sans-korean, sans-serif;
     font-weight: 300;
     font-style: normal;
@@ -35,13 +38,18 @@ html{
     letter-spacing: 0;
     line-height: 1;
     #root{
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
       height: 100%;
       .App{
-        width: 70%;
-        height: 100%;
+        .container{
+          // width: 1360px;
+          // width: 70%;
+          width: 80%;
+          height: 100%;
+          margin: 0 auto;
+        }
       }
       button{
         border: none;
@@ -58,10 +66,92 @@ html{
   }
 }
 
+header{
+  width: 100%;
+  height: 4.5rem;
+  margin-top: 3rem;
+  .container{
+    display: flex;
+    justify-content: space-between;
+  }
+  .top{
+    display: flex;
+    align-items: center;
+    .button-home{
+      @include fontpoint();
+      font-size: 3rem;
+      padding-right: 5rem;
+    }
+    .search-pub{
+      width: 33rem;
+      height: 100%;
+      padding: 0 2em;
+      font-size: 1.4rem;
+      color: aliceblue;
+      opacity: .8;
+      border: none;
+      border-radius: 20rem;
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255, 255, 255, .2));
+    }
+    .search-pub::placeholder{
+      font-weight: 300;
+      color: aliceblue;
+      opacity: .5;
+    }
+  }
+  nav{
+    display: flex;
+    align-items: center;
+    margin-left: 5rem;
+    a{
+      position: relative;
+      display: inline-block;
+      padding: 0 1em;
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: aliceblue;
+      &::after{
+        content: '';
+        position: absolute;
+        left: 1em;
+        bottom: -1rem;
+        width: 60%;
+        height: 2px;
+        background: aliceblue;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .3s;
+      }
+      &:hover::after{
+        transform: scaleX(1);
+      }
+    }
+
+
+  }
+
+  .bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 12rem;
+    .user-profile{
+      width: 3.4rem;
+      height: 3.4rem;
+      border-radius: 50%;
+      background-color: $mainpoint;
+    }
+  }
+}
+
 .temp{
   color: blue;
 }
 .temp2{
   @include fontpoint();
+  color: white;
+}
+
+.material-icons{
   color: white;
 }
