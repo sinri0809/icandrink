@@ -1,0 +1,68 @@
+$mainpoint : rgb(233, 125, 30);
+$maindark : rgb(27, 3, 46);
+$mainbase : rgb(127, 64, 40);
+$fontbasic: rgb(54, 54, 54);
+
+
+@mixin fontPoint {
+  font-family: reklame-script, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 4rem;
+  letter-spacing: 1.5px;
+  color: aliceblue;
+}
+@mixin alcoholCard(){
+  position: relative;
+  width: 40rem;
+  height: 35rem;
+  padding: 3rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, .15));
+  transition: all .3s;
+  border-radius: 2rem;
+  .alcohol-visual{
+    position: relative;
+    display: flex;
+    height: 30rem;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    h4{
+      @include fontPoint();
+    }
+    img{
+      // 잔상 없애기 
+      -webkit-user-drag: none;
+      height: 60%;
+    }
+  }
+}
+@mixin addCard() {
+  display: block;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin: 0 auto;
+  border: 2.5px solid $maindark;
+  border-radius: 50%;
+  color: $maindark;
+  transition: all .3s;
+  &:hover{
+    background: $maindark;
+    color: $mainpoint;
+  }
+}
+@mixin commonHead() {
+  position: relative;
+  margin-bottom: 10rem;
+  & h2,
+  & h3{
+    padding: 1rem 0;
+    margin: 9.5rem 0 7.5rem 0;
+    font-size: 2.2rem;
+    font-weight: 500;
+    text-align: left;
+    letter-spacing: 1px;
+    color: aliceblue;
+    opacity: .3;
+  }
+}
