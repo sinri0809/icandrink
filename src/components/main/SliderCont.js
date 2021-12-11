@@ -1,15 +1,9 @@
 /* eslint-disable */
-import { useState } from "react";
-import axios from "axios";
 
 
-
-const SliderCont = ({alcohol, index}) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  console.log(alcohol.abv)
-
-  return <div className={"slider-cont "+ (activeIndex === index?"--active":null)}>
-    
+const SliderCont = ({alcohol, index, activeIndex}) => {
+  // console.log(activeIndex);
+  return <li className={"slider-cont "+ (0 === index?"--active":null)}>
     <div className="left alcohol-visual">
       <h4>{alcohol.name}</h4>
       <img src={`https://sinri0809.github.io/icandrinkdata.github.io/alcohol-icon/${alcohol.file}`}
@@ -46,7 +40,9 @@ const SliderCont = ({alcohol, index}) => {
       <p>{alcohol.type}</p>
     </div>
 
-  </div>
+  </li>
 }
+
+
 
 export default SliderCont;

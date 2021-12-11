@@ -1,12 +1,16 @@
 /* eslint-disable */
 // import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+// lazy 와 Suspense를 이용해서 불필요하게 한번에 import하는 걸 막을 수 있다.
+import { useState, lazy, Suspense } from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
 import './style/style.scss';
 
 import MainSlider from './components/main/MainSlider';
-import Drinks from './components/drinks/Drinks';
+let Drinks = lazy(() => import('./components/drinks/Drinks'));
+// import Drinks from './components/drinks/Drinks';
+let Login = lazy(() => import('./components/header/Login'));
+// import Login from './components/header/Login';
 
 // alcohol icon들이 있는 곳.
 // url parameter를 공부해야할거같움..??
@@ -35,8 +39,17 @@ const alcohol_lst = [{
   style : ["Hoppy", "Haze", "Tropical"],
   infor : "When you wanna drink, just pickme",
   file : 'beer_1_hazy.svg'
-}]
-
+},{
+  name : "whiskey sour",
+  type : "Cocktail",
+  type_detail : "Sour Cocktail",
+  abv : ["?", "?"],
+  style : ["Lemon", "Sweet", "Flavour"],
+  infor : "When you wanna drink, just pickme",
+  file : 'cocktail_2_sourw.svg'
+}
+]
+// const kakaoAPI = '4687a67faa4292cb07f10d69af26b874';
 
 function App() {
   const [alcohols, setAlcohol] = useState(alcohol_lst)
@@ -60,9 +73,10 @@ function App() {
           <div className="bottom">
             <button id="notice" className="material-icons">notifications</button>
             <button id="pubmark" className="material-icons">local_bar</button>
-            <div className="user-profile">
+            <Link id="user-login" to="/user/login">login</Link>
+            {/* <div className="user-profile"> */}
               {/* <span className="material-icons">face</span> */}
-            </div>
+            {/* </div> */}
           </div>
 
         </div>
@@ -76,16 +90,20 @@ function App() {
           />
         </Route>
 
-        <Route path="/drinks">
-          <Drinks
-            alcohols={alcohols}
-          />
+        <Route path="/user/login">
+          <Suspense fallback={<div>this is loading to login</div>}>
+            <Login />
+          </Suspense>
         </Route>
 
-
+        <Route path="/drinks">
+          <Suspense fallback={<div>this is loading to login</div>}>
+            <Drinks
+              alcohols={alcohols}
+            />
+          </Suspense>
+        </Route>
       </Switch>
-
-
     </div>
   );
 }

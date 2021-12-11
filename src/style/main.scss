@@ -1,42 +1,9 @@
-$maindark : rgb(27, 3, 46);
-$mainpoint : rgb(233, 125, 30);
+@import "_common.scss";
 
 
-@mixin fontpoint {
-  font-family: reklame-script, sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 4rem;
-  letter-spacing: 1.5px;
-  color: aliceblue;
-}
-@mixin addCard() {
-  display: block;
-  width: 4.5rem;
-  height: 4.5rem;
-  margin: 0 auto;
-  border: 2.5px solid $maindark;
-  border-radius: 50%;
-  color: $maindark;
-  transition: all .3s;
-  &:hover{
-    background: $maindark;
-    color: $mainpoint;
-  }
-}
+main .main-slider{
+  @include commonHead();
 
-main{
-  position: relative;
-  margin-bottom: 10rem;
-  h2{
-    padding: 10.5rem 0 8.5rem 0;
-    font-size: 2.2rem;
-    font-weight: 500;
-    text-align: left;
-    letter-spacing: 1px;
-    color: aliceblue;
-    opacity: .3;
-  }
   .slider-container{
     position: relative;
     width: 100%;
@@ -46,12 +13,15 @@ main{
       display: none;
     }
     .slider-wrapper{
+      position: relative;
       display: flex;
-      width: 200%;
+      width: 1800px;
+      // width: calc(75.5rem + 40rem * 2);
       align-items: center;
       flex-wrap: nowrap;
       margin-bottom: 10rem;
-
+      transform-origin: left;
+      transition: all .3s;
     }
   }
   .slider-navigation{
@@ -60,6 +30,7 @@ main{
     height: 5px;
     background-color: rgba($color: #FFF, $alpha: 0.2);
     border-radius: 3px;
+    cursor: pointer;
     .navigation-bar{
       position: absolute;
       left: 0;
@@ -67,17 +38,12 @@ main{
       height: 100%;
       border-radius: 3px;
       background-color: rgba($color: #FFF, $alpha: 0.8);
+      transition: all .3s;
     }
   }
 }
 .slider-cont{
-  position: relative;
-  width: 40rem;
-  height: 35rem;
-  padding: 3rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, .15));
-  // background-color: rgba($color: #FFF, $alpha: 0.3);
-  border-radius: 2rem;
+  @include alcoholCard();
   margin-right: 5.5rem;
   &::after{
     position: absolute;
@@ -90,32 +56,15 @@ main{
     background-repeat: no-repeat;
     background-position: center;
     z-index: -9;
-  }
-  .left{
-    
+    -webkit-user-drag: none;
   }
   .mid ,.right{
     display: none;
   }
 }
-.alcohol-visual{
-  position: relative;
-  display: flex;
-  // width: 20rem;
-  height: 30rem;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  h4{
-    @include fontpoint();
-  }
-  img{
-    // width: 50%;
-    height: 60%;
-  }
-}
 // active 된 슬라이드
 .slider-cont.--active{
+  // width: 800px;
   width: 72.5rem;
   height: 40rem;
   display: grid;
@@ -186,5 +135,4 @@ main{
       font-size: 1.4rem;
     }
   }
-
 }

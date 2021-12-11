@@ -1,0 +1,70 @@
+@import "_common.scss";
+
+
+main .drinks{
+  @include commonHead();
+  color: aliceblue;
+  .drinks-type{
+    display: flex;
+    > *{
+      padding-right: 2rem;
+      &:hover{
+        opacity: 1;
+      }
+    }
+  }
+  .alcohols-type{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    li{
+      padding: 1em;
+      font-size: 1.8rem;
+      letter-spacing: 1.5px;
+      // flex: 1;
+      opacity: .4;
+      &:hover{
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.drinks-card{
+  @include alcoholCard();
+  width: 25rem;
+  display: grid;
+  margin-bottom: 3rem;
+  .right{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1.5rem;
+    display: block;
+    // width: 100%;
+    height: 100%;
+    color: $maindark;
+    .add-card{
+      @include addCard();
+      width: 3.5rem;
+      height: 3.5rem;
+      font-size: 2rem;
+    }
+    opacity: .3;
+    transition: all .3s;
+    // background-blend-mode: darken;
+    // mix-blend-mode: darken;
+    // background: rgba($color: #000000, $alpha: 0.7);
+    // visibility: hidden;
+  }
+  &:hover{
+    .right{
+      opacity: 8;
+    }
+  }
+}

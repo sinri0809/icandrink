@@ -1,22 +1,8 @@
-$mainpoint : rgb(233, 125, 30);
-$maindark : rgb(27, 3, 46);
-$mainbase : rgb(127, 64, 40);
-$fontbasic: rgb(54, 54, 54);
+@import "_common.scss";
 
-@mixin fontpoint {
-  // font-family: rixmmjse-pro, serif;
-  // font-weight: 700;
-  // font-style: normal;
-  color: aliceblue;
-  font-family: reklame-script, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: 1.5px;
-}
 
 :root{
   font-size: 10px;
-
 }
 // basic 설정 initializing
 *{
@@ -26,6 +12,9 @@ $fontbasic: rgb(54, 54, 54);
   outline-style: none;
 }
 html{
+  // height: 100%;
+  min-height: 1000px;
+  font-size: 10px;
   body{
     font-family: source-han-sans-korean, sans-serif;
     font-weight: 300;
@@ -35,11 +24,10 @@ html{
 
     letter-spacing: 0;
     line-height: 1;
-
+    user-select: none;
     position: relative;
     background: url('./../background.svg') no-repeat center;
     background-size: cover;
-    height: 100%;
     .App{
       .container{
         // width: 1360px;
@@ -74,8 +62,9 @@ header{
   .top{
     display: flex;
     align-items: center;
+    color: aliceblue;
     .button-home{
-      @include fontpoint();
+      @include fontPoint();
       font-size: 3rem;
       padding-right: 5rem;
     }
@@ -84,7 +73,6 @@ header{
       height: 100%;
       padding: 0 2em;
       font-size: 1.4rem;
-      color: aliceblue;
       opacity: .8;
       border: none;
       border-radius: 20rem;
@@ -123,22 +111,27 @@ header{
         transform: scaleX(1);
       }
     }
-
-
   }
-
   .bottom{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // width: 12rem;
+    
     > *{
       padding: 0 1rem;
     }
     button{
+      color: aliceblue;
       transition: all .3s;
       &:hover{
         color: $mainpoint;
+      }
+    }
+    #user-login{
+      @include fontPoint();
+      font-size: 2rem;
+      &:hover{
+        text-decoration: underline;
       }
     }
     .user-profile{
@@ -149,16 +142,4 @@ header{
       background-color: $mainpoint;
     }
   }
-}
-
-.temp{
-  color: blue;
-}
-.temp2{
-  @include fontpoint();
-  color: white;
-}
-
-.material-icons{
-  color: white;
 }
